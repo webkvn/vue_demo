@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <h3>这是子组件</h3>
-    <p>{{content}}</p>
-  </div>
+<div>
+  <h3>这里是一个子组件</h3>
+  <p>{{content}}</p>
+</div>
 </template>
 <script>
-  export default{
-    props: ['content']
-  }
+export default {
+  props: ['content']
+}
 </script>
