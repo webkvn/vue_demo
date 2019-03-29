@@ -1,12 +1,13 @@
 <template>
 <div id="app">
   <!-- <child :content="msg"></child> -->
-  <home></home>
+  <super-agent></super-agent>
 </div>
 </template>
 <script>
 import child from './components/Child.vue'
 import Home from './components/Home.vue'
+import SuperAgent from './components/SuperAgent.vue'
 export default {
   name: 'app',
   data() {
@@ -16,7 +17,8 @@ export default {
   },
   components: {
     child,
-    Home
+    Home,
+    SuperAgent
   }
 }
 </script>
