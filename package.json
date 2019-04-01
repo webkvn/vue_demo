@@ -5,17 +5,19 @@
   "author": "birdhelper",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js --open",
+    "dev": "node server/index.js | node build/dev-server.js --open",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "mysql": "^2.16.0",
     "vue": "^2.3.3",
     "vue-router": "^2.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "axios": "^0.18.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^7.1.1",
@@ -23,6 +25,7 @@
     "babel-preset-env": "^1.3.2",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",
+    "body-parser": "^1.18.3",
     "chalk": "^2.0.1",
     "connect-history-api-fallback": "^1.3.0",
     "copy-webpack-plugin": "^4.0.1",

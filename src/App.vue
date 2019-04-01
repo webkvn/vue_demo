@@ -1,13 +1,14 @@
 <template>
 <div id="app">
   <!-- <child :content="msg"></child> -->
-  <super-agent></super-agent>
+  <mysql-test></mysql-test>
 </div>
 </template>
 <script>
 import child from './components/Child.vue'
 import Home from './components/Home.vue'
 import SuperAgent from './components/SuperAgent.vue'
+import MysqlTest from './components/MysqlTest.vue'
 export default {
   name: 'app',
   data() {
@@ -18,7 +19,8 @@ export default {
   components: {
     child,
     Home,
-    SuperAgent
+    SuperAgent,
+    MysqlTest
   }
 }
 </script>

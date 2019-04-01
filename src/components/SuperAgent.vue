@@ -3,6 +3,21 @@
   <p>SuperAgent</p>
   <input type="text" v-model="keyword" @keyup.enter="doSearch">
   <button @click="doSearch">搜索</button>
+  <form id="myForm">
+    <label for="username">用户名</label>
+    <input type="text" name="username">
+    <label for="password">密码</label>
+    <input type="password" name="password">
+    <label for="sex">性别</label>
+    <input type="radio" value="0" name="sex">男</radio>
+    <input type="radio" value="1" name="sex">女</radio>
+    <select name="hobby" id="hobby">
+      <option value="0">电影</option>
+      <option value="1">篮球</option>
+      <option value="2">书籍</option>
+    </select>
+    <button name="send" @click="doFormData">发送</button>
+  </form>
   <ul>
     <li v-for="(item,index) in movies">
       <article>
@@ -87,10 +102,28 @@ export default {
             this.movies = res.body.subjects;
           }
         });
+    },
+    doPost() {
+      request
+        .post('/api/user')
+        .set('Content-Type', 'application/json')
+        .send('{"name":"tj","pet":"tobi"}')
+        .then(res => {
+
+        })
+    },
+    doFormData() {
+      request
+        .type('application/json')
+        .send(new FormData(document.getElementById('myForm')))
+        .then(res => {
+
+        })
     }
   },
   created() {
     // this.getDb4();
+    // this.doPost();
   },
   filters: {
     getImages(_url) {
