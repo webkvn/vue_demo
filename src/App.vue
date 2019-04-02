@@ -1,7 +1,7 @@
 <template>
 <div id="app">
   <!-- <child :content="msg"></child> -->
-  <mysql-test></mysql-test>
+  <multer></multer>
 </div>
 </template>
 <script>
@@ -9,6 +9,7 @@ import child from './components/Child.vue'
 import Home from './components/Home.vue'
 import SuperAgent from './components/SuperAgent.vue'
 import MysqlTest from './components/MysqlTest.vue'
+import Multer from './components/Multer.vue'
 export default {
   name: 'app',
   data() {
@@ -20,7 +21,8 @@ export default {
     child,
     Home,
     SuperAgent,
-    MysqlTest
+    MysqlTest,
+    Multer
   }
 }
 </script>

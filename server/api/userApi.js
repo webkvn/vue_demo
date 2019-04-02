@@ -51,9 +51,15 @@ router.post('/editUser', (req, res) => {
 
 // 查看用户接口
 router.get('/viewUser', (req, res) => {
+  console.log('req.baseUrl:'+req.baseUrl);
+  console.log('req.body:'+req.body);
+  console.log('req.hostname:'+req.hostname);
+  console.log('req.ip:'+req.ip);
+  console.log('req.path:'+req.path);
+  console.log('req.route:'+req.route);
   var sql = $sql.user.view;
   var params = req.query;
-  console.log(params);
+  // console.log(params);
   conn.query(sql, [params.id], function(err, result) {
     if (err) {
       console.log(err);

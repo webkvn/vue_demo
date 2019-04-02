@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home.vue'
 import SuperAgent from '@/components/SuperAgent.vue'
 import MysqlTest from '@/components/MysqlTest.vue'
+import Multer from '@/components/Multer.vue'
 
 Vue.use(Router)
 
@@ -14,7 +15,7 @@ export default new Router({
   },{
     path: '/',
     name: '',
-    component: MysqlTest
+    component: Multer
   },{
     path: '/SuperAgent',
     name: 'SuperAgent',
@@ -23,7 +24,10 @@ export default new Router({
     path: '/MysqlTest',
     name: 'MysqlTest',
     component: MysqlTest
+  },{
+    path: '/Multer',
+    name: 'Multer',
+    component: Multer
   }
-
 ]
 })
