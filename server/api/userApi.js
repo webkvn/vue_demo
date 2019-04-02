@@ -9,29 +9,74 @@ var conn = mysql.createConnection(models.mysql);
 
 conn.connect();
 var jsonWrite = function(res, ret) {
-    if(typeof ret === 'undefined') {
-        res.json({
-            code: '1',
-            msg: '操作失败'
-        });
-    } else {
-        res.json(ret);
-    }
+  if (typeof ret === 'undefined') {
+    res.json({
+      code: '1',
+      msg: '操作失败'
+    });
+  } else {
+    res.json(ret);
+  }
 };
 
 // 增加用户接口
 router.post('/addUser', (req, res) => {
-    var sql = $sql.user.add;
-    var params = req.body;
-    console.log(params);
-    conn.query(sql, [params.username, params.age], function(err, result) {
-        if (err) {
-            console.log(err);
-        }
-        if (result) {
-            jsonWrite(res, result);
-        }
-    })
+  var sql = $sql.user.add;
+  var params = req.body;
+  console.log(params);
+  conn.query(sql, [params.username, params.age], function(err, result) {
+    if (err) {
+      console.log(err);
+    }
+    if (result) {
+      jsonWrite(res, result);
+    }
+  })
+});
+
+// 修改用户接口
+router.post('/editUser', (req, res) => {
+  var sql = $sql.user.edit;
+  var params = req.body;
+  console.log(params);
+  conn.query(sql, [params.username, params.age, params.id], function(err, result) {
+    if (err) {
+      console.log(err);
+    }
+    if (result) {
+      jsonWrite(res, result);
+    }
+  })
+});
+
+// 查看用户接口
+router.get('/viewUser', (req, res) => {
+  var sql = $sql.user.view;
+  var params = req.query;
+  console.log(params);
+  conn.query(sql, [params.id], function(err, result) {
+    if (err) {
+      console.log(err);
+    }
+    if (result) {
+      jsonWrite(res, result);
+    }
+  })
+});
+
+// 删除用户接口
+router.post('/removeUser', (req, res) => {
+  var sql = $sql.user.remove;
+  var params = req.body;
+  console.log(params);
+  conn.query(sql, [params.id], function(err, result) {
+    if (err) {
+      console.log(err);
+    }
+    if (result) {
+      jsonWrite(res, result);
+    }
+  })
 });
 
 module.exports = router;
