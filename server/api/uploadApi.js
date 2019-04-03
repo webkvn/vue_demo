@@ -11,7 +11,10 @@ var storage = multer.diskStorage({
   },
   filename: function(req, file, cb) {
     // 将保存文件名设置为 时间戳 + 文件原始名，比如 151342376785-123.jpg
-    cb(null, Date.now() + "-" + file.originalname);
+    // cb(null, Date.now() + "-" + file.originalname);
+    var spl = file.originalname.split('.');
+    var ext = spl[spl.length - 1];
+    cb(null, file.fieldname + '-' + Date.now() + '.' + ext)
   }
 });
 
@@ -46,10 +49,12 @@ var upload = multer({
 //     res.json({res_code: '0'});
 // });
 
-router.post('/', upload.array('files', 3), function(req, res, next) {
+router.post('/', upload.array('test', 3), function(req, res, next) {
   console.log(req.files.length);
+  console.log(req.files);
   res.json({
-    res_code: '0'
+    res_code: '0',
+    msg:'上传成功.'
   });
 })
 

@@ -1,7 +1,6 @@
 <template>
 <div id="app">
-  <!-- <child :content="msg"></child> -->
-  <multer></multer>
+  <router-view />
 </div>
 </template>
 <script>

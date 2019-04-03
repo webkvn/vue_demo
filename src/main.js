@@ -4,10 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import moment from 'moment'
 
 
 Vue.prototype._us=require('underscore')._
 Vue.prototype.$http=axios
+Vue.prototype._mt=moment
 Vue.config.productionTip = false
 
 

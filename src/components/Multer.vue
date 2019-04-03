@@ -1,7 +1,10 @@
 <template>
 <div>
   <p>Multer</p>
-  <input type="file" value="" @change="uploadFile()" ref="uploadFile" multiple />
+  <input type="file" value="" name="test" ref="uploadFile" multiple />
+  用户名<input type="text" name="username" v-model="username">
+  年龄<input type="text" name="age" v-model="age">
+  <button @click="uploadFile()">提交</button>
 </div>
 </template>
 <script>
@@ -9,7 +12,9 @@ export default {
   name: 'Template',
   data() {
     return {
-      'msg': ''
+      msg: '',
+      username: '',
+      age: ''
     }
   },
   methods: {
@@ -29,8 +34,13 @@ export default {
       // 把 input 标签获取的文件加入 FromData 中
       //fd.append('file', files[0]);
       for (var i = 0; i < files.length; i++) {
-        fd.append('files', files[i]);
+        fd.append('test', files[i]);
       }
+
+      fd.append('username', this.username)
+      fd.append('age', this.age)
+      // console.table(fd.get('username'))
+
       // Ajax
       var request = new XMLHttpRequest();
       request.open("POST", "/api/mysql/upload/");
@@ -38,8 +48,9 @@ export default {
       request.onreadystatechange = function() {
         if (request.readyState === 4 & request.status === 200) {
           console.log("上传成功");
-          var response = JSON.parse(request.responseText);
-          console.log(response);
+          console.log(request.responseText);
+          // var response = JSON.parse(request.responseText);
+          // console.log(response);
         }
       }
     }
