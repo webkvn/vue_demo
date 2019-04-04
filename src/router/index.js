@@ -6,6 +6,7 @@ import MysqlTest from '@/components/MysqlTest.vue'
 import Multer from '@/components/Multer.vue'
 import Moment from '@/components/Moment.vue'
 import Md5 from '@/components/Md5.vue'
+import Async from '@/components/Async.vue'
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ export default new Router({
   },{
     path: '/',
     name: '',
-    component: Md5
+    component: Async
   },{
     path: '/SuperAgent',
     name: 'SuperAgent',
@@ -38,6 +39,10 @@ export default new Router({
     path: '/Md5',
     name: 'Md5',
     component: Md5
+  },{
+    path: '/Async',
+    name: 'Async',
+    component: Async
   }
 ]
 })

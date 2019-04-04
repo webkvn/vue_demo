@@ -8,7 +8,7 @@ export default {
   name: 'Template',
   data() {
     return {
-      'msg': ''
+      msg: ''
     }
   },
   methods: {
