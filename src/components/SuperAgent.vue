@@ -122,7 +122,7 @@ export default {
     }
   },
   created() {
-    // this.getDb4();
+    this.getDb1();
     // this.doPost();
   },
   filters: {

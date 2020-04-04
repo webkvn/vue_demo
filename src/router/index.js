@@ -18,7 +18,7 @@ export default new Router({
   },{
     path: '/',
     name: '',
-    component: Async
+    component: Home
   },{
     path: '/SuperAgent',
     name: 'SuperAgent',
